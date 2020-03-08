@@ -1,0 +1,16 @@
+{%load static%}
+<html>
+    <head>
+        <title>HOMEPAGE</title>
+        <link rel="stylesheet" href="{%static 'css/blog.css'%}"
+    </head>
+    <body>
+        <div>
+            <h1><a href="#"> BLOG </a> </h1>
+        </div>
+        <article>
+            {%block content%}
+            {% endblock %}
+        </article>
+    </body>
+</html>

@@ -1,20 +1,14 @@
-{%load static%}
-<html>
-    <head>
-        <title>HOMEPAGE</title>
-        <link rel="stylesheet" href="{%static 'css/blog.css'%}"
-    </head>
-    <body>
-        <div>
-            <h1><a href="#"> BLOG </a> </h1>
-        </div>
+{% extends 'blog/base.html' %}
+{% block content%}
+    {% for post in posts%}
+                <div>
+                    <hr>
+                    <p> PUBLISHED ON: {{post.published_date}}</p>
+                    <h3><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h3>
+                    <p>{{post.text|linebreaksbr}}
 
-        {% for post in posts%}
-            <div>
-                <p> PUBLISHED ON: {{post.published_date}}</p>
-                <h3>{{post.title}}</h3>
-                <p>{{post.text|linebreaksbr}}
-            </div>
-        {%endfor%}
-    </body>
-</html>
+                    <h1> the posts pk is {{post.pk}}</h1>
+                    <hr>
+                </div>
+    {%endfor%}
+{% endblock %}
